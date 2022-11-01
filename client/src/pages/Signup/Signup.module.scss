@@ -1,0 +1,16 @@
+@import '../Login/Login.module.scss';
+
+// Go to Login.module.scss to get styles
+
+.content_box {
+    width: 400px;
+
+    .inputs {
+        .errmsg {
+            visibility: visible;
+        }
+        .offscreen {
+            visibility: hidden;
+        }
+    }
+}

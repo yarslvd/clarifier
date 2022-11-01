@@ -1,0 +1,166 @@
+@import '../../App.scss';
+
+footer {
+    background-color: $basic-dark-color;
+    width: 100%;
+}
+
+.container {
+    padding-top: 110px;
+}
+
+.left_sidebar {
+    position: fixed;
+}
+
+.right_sidebar {
+    color: $basic-dark-color;
+
+    .heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 35px;
+
+        h1 {
+            font-weight: 700;
+            font-size: 32px;
+        }
+
+        button {
+            @include outlinedButton;
+            padding: 6px 45px;
+        }
+    }
+
+    .sorting {
+        display: flex;
+        gap: 10px;
+
+        .sortingBtn {
+            @include containedButton;
+
+            font-size: 15px;
+            width: 110px;
+            border-radius: 40px;
+            border: 1px solid $basic-dark-color;
+
+            svg {
+                font-size: 15px;
+            }
+        }
+
+        .sortingBtn_active {
+            @include containedButton;
+
+            font-size: 15px;
+            width: 110px;
+            border-radius: 40px;
+            background-color: #fff;
+            color: $basic-dark-color;
+            border: 1px solid $basic-dark-color;
+
+            svg {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .questionsList {
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.filter_container {
+    flex-direction: column;
+
+    h2 {
+        font-weight: 700;
+        color: $basic-dark-color;
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    .filter {
+        width: 80%;
+    
+        .section_heading {
+            font-weight: 800;
+            font-size: 18px;
+            color: $basic-dark-color;
+            margin-bottom: 17px;
+        }
+    
+        .topic_container {
+            margin-bottom: 40px;
+    
+            .input_topic_container {
+                position: relative;
+                margin-bottom: 8px;
+        
+                .input_topic {
+                    width: 100%;
+        
+                    input {
+                        width: 100%;
+                        padding: .5em 1em;
+                        padding-right: 3em;
+                        background-color: #EFEFEF;
+                        border-radius: 10px;
+                    }
+                    fieldset {
+                        border: none;
+                    }
+                }
+        
+                svg {
+                    position: absolute;
+                    top: 20%;
+                    right: 10px;
+                }
+            }
+        
+            .scrollBox {
+                height: 100%;
+        
+                &::-webkit-scrollbar {
+                    width: 5px;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: #DCDCDC;
+                    border-radius: 15px;
+                    margin: 5px 0;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: $basic-dark-color;
+                    border-radius: 15px;
+                }
+            }
+        }
+    
+        .date_container {
+            margin-bottom: 35px;
+            .input_container {
+                display: flex;
+                gap: 10px;
+    
+                .datePicker {
+                    width: 130px;
+                }
+            }
+        }
+    
+        .buttons {
+            .confirmBtn {
+                padding: 8px 44px;
+                font-size: 14px;
+                font-weight: 500;
+                text-transform: capitalize;
+                border-radius: 8px;
+            }
+        }
+    }
+}

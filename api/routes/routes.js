@@ -1,0 +1,61 @@
+const express = require('express');
+const router = express.Router();
+const authController = require('../controller/authController');
+const userController = require('../controller/userController');
+const postController = require('../controller/postController');
+const categoryController = require('../controller/categoryController');
+const commentController = require('../controller/commentController');
+const { authenticateToken } = require("../utils/jwt");
+const upload = require('../utils/uploadAvatar');
+
+//AUTH CONTROLLERS
+router.post('/api/auth/register', authController.register);
+router.post('/api/auth/confirm/:token', authController.confirmEmail);
+router.post('/api/auth/login', authController.login);
+router.post('/api/auth/logout', authenticateToken, authController.logout);
+router.post('/api/auth/password-reset', authController.passwordReset);
+router.post('/api/auth/password-reset/:token', authController.confirmPasswordReset);
+router.post('/api/auth/checkToken/:token', authController.checkToken);
+router.get('/api/auth/me', authenticateToken, authController.getMe);
+
+//USER CONTROLLERS
+router.get('/api/users/publicInfo/:id', userController.getPublicUserInfo);
+router.get('/api/users', authenticateToken, userController.getAllUsers);
+router.get('/api/users/:user_id', authenticateToken, userController.getUser);
+router.post('/api/users', authenticateToken, userController.createUser);
+router.patch('/api/users/avatar', authenticateToken, upload.single('image'), userController.uploadAvatar);
+router.patch('/api/users/:user_id', authenticateToken, userController.updateUserData);
+router.delete('/api/users/:user_id', authenticateToken, userController.deleteUser);
+router.post('/api/userInfo', userController.getUserInfo);
+
+//POST CONTROLLER
+router.get('/api/posts', postController.getAllPosts);
+router.get('/api/posts/:post_id', postController.getPost);
+router.get('/api/posts/:post_id/comments', postController.getComments);
+router.get('/api/posts/authorID/:user_id', authenticateToken, postController.getAllPostAuthorID);
+router.post('/api/posts/:post_id/comments', authenticateToken, postController.addComment);
+router.get('/api/posts/:post_id/categories', postController.getCategories);
+router.get('/api/posts/:post_id/like', authenticateToken, postController.getLikes);
+router.post('/api/posts/', authenticateToken, postController.createPost);
+router.post('/api/posts/:post_id/like', authenticateToken, postController.addLike);
+router.patch('/api/posts/:post_id', authenticateToken, postController.editPost);
+router.delete('/api/posts/:post_id', authenticateToken, postController.deletePost);
+router.delete('/api/posts/:post_id/like', authenticateToken, postController.deleteLike);
+
+//CATEGORY CONTROLLER
+router.get('/api/categories', categoryController.getAllCategories);
+router.get('/api/categories/:category_id', categoryController.getCategory);
+router.get('/api/categories/:category_id/posts', authenticateToken, categoryController.getPostsCategory);
+router.post('/api/categories', authenticateToken, categoryController.createCategory);
+router.patch('/api/categories/:category_id', authenticateToken, categoryController.editCategory);
+router.delete('/api/categories/:category_id', authenticateToken, categoryController.deleteCategory);
+
+//COMMENT CONTROLLER
+router.get('/api/comments/:comment_id', authenticateToken, commentController.getComment);
+router.get('/api/comments/:comment_id/like', authenticateToken, commentController.getLikesComment);
+router.post('/api/comments/:comment_id/like', authenticateToken, commentController.addCommentLike);
+router.patch('/api/comments/:comment_id', authenticateToken, commentController.editComment);
+router.delete('/api/comments/:comment_id', authenticateToken, commentController.deleteComment);
+router.delete('/api/comments/:comment_id/like', authenticateToken, commentController.deleteLikeComment);
+
+module.exports = router;

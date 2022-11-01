@@ -1,0 +1,5 @@
+/api/node_modules
+/api/.adminbro
+/client/node_modules
+
+.DS_Store

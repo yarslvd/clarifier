@@ -1,0 +1,49 @@
+$basic-dark-color: #1D3557;
+$basic-light-color: #F1FAEE;
+
+@font-face {
+    font-family: 'Kharkiv Tone';
+    font-weight: 500;
+    src: local('Kharkiv Tone'), url(./assets/fonts/KharkivTone.ttf) format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+footer {
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+//MIXINS
+
+@mixin outlinedButton {
+    font-weight: 700;
+    border-radius: 13px;
+    text-transform: capitalize;
+    color: $basic-dark-color;
+}
+
+@mixin containedButton {
+    font-weight: 400;
+    border-radius: 13px;
+    text-transform: capitalize;
+    background-color: $basic-dark-color;
+}

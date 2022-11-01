@@ -1,0 +1,70 @@
+@import '../../App.scss';
+
+.commentContainer {
+    margin-bottom: 30px;
+    background-color: #F2F2F2;
+    padding: 20px 30px;
+    border-radius: 25px;
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .publishDate {
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 18px;
+                color: #A9A9A9;
+            }
+
+            .login {
+                font-weight: 700;
+                font-size: 15px;
+                color: $basic-dark-color;
+                text-decoration: none;
+                
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .likes {
+            display: flex;
+            gap: 5px;
+
+            .item {
+                gap: 5px;
+                padding: 5px;
+                background-color: transparent;
+                color: $basic-dark-color;
+                border: 1px solid $basic-dark-color;
+                border-radius: 10px;
+
+                svg {
+                    font-size: 16px;
+                }
+            }
+
+            .item_active {
+                gap: 5px;
+                padding: 5px;
+                background-color: $basic-dark-color;
+                color: #fff;
+                border: 1px solid $basic-dark-color;
+                border-radius: 10px;
+
+                svg {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}
