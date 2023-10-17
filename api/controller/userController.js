@@ -1,7 +1,7 @@
 const { users } = require('../utils/initTables');
 const UserClass = require('../models/UserSeq');
 const { passStrengthChecker, validateUsername, validateEmail } = require('../utils/registerErrorHandler');
-const Op = require('Sequelize').Op
+const Op = require('sequelize').Op
 const bcrypt = require('bcrypt');
 
 const User = new UserClass('users');

@@ -1,7 +1,7 @@
 const { posts, comments, posts_categories, categories, postsLikes, users } = require('../utils/initTables');
 const UserClass = require('../models/UserSeq');
 const { parseJwt } = require('../utils/jwt');
-const Op = require('Sequelize').Op
+const Op = require('sequelize').Op
 
 const User = new UserClass();
 
