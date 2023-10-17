@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer');
 const bcrypt = require('bcrypt');
 const { handleErrors } = require('../utils/registerErrorHandler');
-const Op = require('Sequelize').Op
+const Op = require('sequelize').Op
 const { users } = require('../utils/initTables');
 const UserClass = require('../models/UserSeq');
 require('dotenv').config();
