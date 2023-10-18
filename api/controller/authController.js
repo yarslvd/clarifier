@@ -146,7 +146,7 @@ exports.passwordReset = async (req, res) => {
     //Creating confirm token
     const token = jwt.sign({email: user.email, id: user.id},
         process.env.SECURE_TOKEN, {expiresIn: '5m'});
-    const link = `http://localhost:3000/reset-password/${token}`
+    const link = `https://clarifier.vercel.app/reset-password/${token}`
 
     //Sending the message with link
     let message = {
